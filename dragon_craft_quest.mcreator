@@ -1,0 +1,37 @@
+{
+  "mod_elements": [],
+  "variable_elements": [
+    {
+      "name": "ManaCharge",
+      "type": "logic",
+      "scope": "player_persistent",
+      "value": "false"
+    }
+  ],
+  "sound_elements": [],
+  "tag_elements": {},
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {}
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": []
+  },
+  "workspaceSettings": {
+    "modid": "dragon_craft_quest",
+    "modName": "Dragon Craft Quest",
+    "version": "1.0.0",
+    "author": "myers, MCreator",
+    "websiteURL": "https://mcreator.net",
+    "license": "Not specified",
+    "serverSideOnly": false,
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [],
+    "currentGenerator": "forge-1.20.1",
+    "modElementsPackage": "net.mcreator.dragoncraftquest"
+  },
+  "mcreatorVersion": 202400452410
+}
