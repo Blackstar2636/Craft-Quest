@@ -77,6 +77,14 @@ public class DragonCraftQuestModVariables {
 			PlayerVariables original = ((PlayerVariables) event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 			PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 			clone.ManaCharge = original.ManaCharge;
+			clone.mana = original.mana;
+			clone.wisdom = original.wisdom;
+			clone.health = original.health;
+			clone.max_health = original.max_health;
+			clone.resilience = original.resilience;
+			clone.strength = original.strength;
+			clone.agility = original.agility;
+			clone.vitality = original.vitality;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -119,6 +127,14 @@ public class DragonCraftQuestModVariables {
 
 	public static class PlayerVariables {
 		public boolean ManaCharge = false;
+		public double mana = 0;
+		public double wisdom = 0;
+		public double health = 0;
+		public double max_health = 0;
+		public double resilience = 0;
+		public double strength = 0;
+		public double agility = 0;
+		public double vitality = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -128,6 +144,14 @@ public class DragonCraftQuestModVariables {
 		public Tag writeNBT() {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putBoolean("ManaCharge", ManaCharge);
+			nbt.putDouble("mana", mana);
+			nbt.putDouble("wisdom", wisdom);
+			nbt.putDouble("health", health);
+			nbt.putDouble("max_health", max_health);
+			nbt.putDouble("resilience", resilience);
+			nbt.putDouble("strength", strength);
+			nbt.putDouble("agility", agility);
+			nbt.putDouble("vitality", vitality);
 			return nbt;
 		}
 
@@ -140,6 +164,14 @@ public class DragonCraftQuestModVariables {
 				nbt = (CompoundTag) writeNBT();
 			}
 			ManaCharge = nbt.getBoolean("ManaCharge");
+			mana = nbt.getDouble("mana");
+			wisdom = nbt.getDouble("wisdom");
+			health = nbt.getDouble("health");
+			max_health = nbt.getDouble("max_health");
+			resilience = nbt.getDouble("resilience");
+			strength = nbt.getDouble("strength");
+			agility = nbt.getDouble("agility");
+			vitality = nbt.getDouble("vitality");
 		}
 	}
 
@@ -174,6 +206,14 @@ public class DragonCraftQuestModVariables {
 				if (!context.getDirection().getReceptionSide().isServer()) {
 					PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.level().getEntity(message.target).getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 					variables.ManaCharge = message.data.ManaCharge;
+					variables.mana = message.data.mana;
+					variables.wisdom = message.data.wisdom;
+					variables.health = message.data.health;
+					variables.max_health = message.data.max_health;
+					variables.resilience = message.data.resilience;
+					variables.strength = message.data.strength;
+					variables.agility = message.data.agility;
+					variables.vitality = message.data.vitality;
 				}
 			});
 			context.setPacketHandled(true);
