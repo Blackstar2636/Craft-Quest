@@ -2,7 +2,7 @@
   "mod_elements": [],
   "variable_elements": [
     {
-      "name": "ManaCharge",
+      "name": "MPCharge",
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"

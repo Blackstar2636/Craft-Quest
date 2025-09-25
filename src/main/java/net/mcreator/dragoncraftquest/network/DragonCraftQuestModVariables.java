@@ -76,7 +76,7 @@ public class DragonCraftQuestModVariables {
 			event.getOriginal().revive();
 			PlayerVariables original = ((PlayerVariables) event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 			PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
-			clone.ManaCharge = original.ManaCharge;
+			clone.MPCharge = original.MPCharge;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -118,7 +118,7 @@ public class DragonCraftQuestModVariables {
 	}
 
 	public static class PlayerVariables {
-		public boolean ManaCharge = false;
+		public boolean MPCharge = false;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -127,7 +127,7 @@ public class DragonCraftQuestModVariables {
 
 		public Tag writeNBT() {
 			CompoundTag nbt = new CompoundTag();
-			nbt.putBoolean("ManaCharge", ManaCharge);
+			nbt.putBoolean("MPCharge", MPCharge);
 			return nbt;
 		}
 
@@ -139,7 +139,7 @@ public class DragonCraftQuestModVariables {
 			if (nbt == null) {
 				nbt = (CompoundTag) writeNBT();
 			}
-			ManaCharge = nbt.getBoolean("ManaCharge");
+			MPCharge = nbt.getBoolean("MPCharge");
 		}
 	}
 
@@ -173,7 +173,7 @@ public class DragonCraftQuestModVariables {
 			context.enqueueWork(() -> {
 				if (!context.getDirection().getReceptionSide().isServer()) {
 					PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.level().getEntity(message.target).getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
-					variables.ManaCharge = message.data.ManaCharge;
+					variables.MPCharge = message.data.MPCharge;
 				}
 			});
 			context.setPacketHandled(true);
