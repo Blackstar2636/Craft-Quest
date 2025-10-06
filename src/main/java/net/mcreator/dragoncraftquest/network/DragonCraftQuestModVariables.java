@@ -15,6 +15,7 @@ import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.Capability;
 
+import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
@@ -77,6 +78,12 @@ public class DragonCraftQuestModVariables {
 			PlayerVariables original = ((PlayerVariables) event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 			PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 			clone.MPCharge = original.MPCharge;
+			clone.MP = original.MP;
+			clone.Race = original.Race;
+			clone.Vocation = original.Vocation;
+			clone.Level = original.Level;
+			clone.MaxMP = original.MaxMP;
+			clone.MPTimer = original.MPTimer;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -119,6 +126,12 @@ public class DragonCraftQuestModVariables {
 
 	public static class PlayerVariables {
 		public boolean MPCharge = false;
+		public double MP = 0.0;
+		public String Race = "\"\"";
+		public String Vocation = "\"\"";
+		public double Level = 0;
+		public double MaxMP = 100.0;
+		public double MPTimer = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -128,6 +141,12 @@ public class DragonCraftQuestModVariables {
 		public Tag writeNBT() {
 			CompoundTag nbt = new CompoundTag();
 			nbt.putBoolean("MPCharge", MPCharge);
+			nbt.putDouble("MP", MP);
+			nbt.putString("Race", Race);
+			nbt.putString("Vocation", Vocation);
+			nbt.putDouble("Level", Level);
+			nbt.putDouble("MaxMP", MaxMP);
+			nbt.putDouble("MPTimer", MPTimer);
 			return nbt;
 		}
 
@@ -140,6 +159,12 @@ public class DragonCraftQuestModVariables {
 				nbt = (CompoundTag) writeNBT();
 			}
 			MPCharge = nbt.getBoolean("MPCharge");
+			MP = nbt.getDouble("MP");
+			Race = nbt.getString("Race");
+			Vocation = nbt.getString("Vocation");
+			Level = nbt.getDouble("Level");
+			MaxMP = nbt.getDouble("MaxMP");
+			MPTimer = nbt.getDouble("MPTimer");
 		}
 	}
 
@@ -174,6 +199,12 @@ public class DragonCraftQuestModVariables {
 				if (!context.getDirection().getReceptionSide().isServer()) {
 					PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.level().getEntity(message.target).getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 					variables.MPCharge = message.data.MPCharge;
+					variables.MP = message.data.MP;
+					variables.Race = message.data.Race;
+					variables.Vocation = message.data.Vocation;
+					variables.Level = message.data.Level;
+					variables.MaxMP = message.data.MaxMP;
+					variables.MPTimer = message.data.MPTimer;
 				}
 			});
 			context.setPacketHandled(true);
