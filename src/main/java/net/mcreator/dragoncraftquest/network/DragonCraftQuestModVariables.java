@@ -84,6 +84,11 @@ public class DragonCraftQuestModVariables {
 			clone.Level = original.Level;
 			clone.MaxMP = original.MaxMP;
 			clone.MPTimer = original.MPTimer;
+			clone.Skin = original.Skin;
+			clone.EyeType = original.EyeType;
+			clone.EyeColor = original.EyeColor;
+			clone.HairType = original.HairType;
+			clone.HairColor = original.HairColor;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -132,6 +137,11 @@ public class DragonCraftQuestModVariables {
 		public double Level = 0;
 		public double MaxMP = 100.0;
 		public double MPTimer = 0;
+		public double Skin = 0;
+		public double EyeType = 0;
+		public double EyeColor = 0;
+		public double HairType = 0;
+		public double HairColor = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -147,6 +157,11 @@ public class DragonCraftQuestModVariables {
 			nbt.putDouble("Level", Level);
 			nbt.putDouble("MaxMP", MaxMP);
 			nbt.putDouble("MPTimer", MPTimer);
+			nbt.putDouble("Skin", Skin);
+			nbt.putDouble("EyeType", EyeType);
+			nbt.putDouble("EyeColor", EyeColor);
+			nbt.putDouble("HairType", HairType);
+			nbt.putDouble("HairColor", HairColor);
 			return nbt;
 		}
 
@@ -165,6 +180,11 @@ public class DragonCraftQuestModVariables {
 			Level = nbt.getDouble("Level");
 			MaxMP = nbt.getDouble("MaxMP");
 			MPTimer = nbt.getDouble("MPTimer");
+			Skin = nbt.getDouble("Skin");
+			EyeType = nbt.getDouble("EyeType");
+			EyeColor = nbt.getDouble("EyeColor");
+			HairType = nbt.getDouble("HairType");
+			HairColor = nbt.getDouble("HairColor");
 		}
 	}
 
@@ -205,6 +225,11 @@ public class DragonCraftQuestModVariables {
 					variables.Level = message.data.Level;
 					variables.MaxMP = message.data.MaxMP;
 					variables.MPTimer = message.data.MPTimer;
+					variables.Skin = message.data.Skin;
+					variables.EyeType = message.data.EyeType;
+					variables.EyeColor = message.data.EyeColor;
+					variables.HairType = message.data.HairType;
+					variables.HairColor = message.data.HairColor;
 				}
 			});
 			context.setPacketHandled(true);

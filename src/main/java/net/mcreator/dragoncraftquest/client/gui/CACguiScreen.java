@@ -11,6 +11,7 @@ import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.dragoncraftquest.world.inventory.CACguiMenu;
+import net.mcreator.dragoncraftquest.procedures.RaceVARProcedure;
 import net.mcreator.dragoncraftquest.procedures.PlayerDisplayProcedure;
 
 import java.util.HashMap;
@@ -41,7 +42,7 @@ public class CACguiScreen extends AbstractContainerScreen<CACguiMenu> {
 		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		if (PlayerDisplayProcedure.execute(entity) instanceof LivingEntity livingEntity) {
-			InventoryScreen.renderEntityInInventoryFollowsAngle(guiGraphics, this.leftPos + -63, this.topPos + 10, 50, 0f, 0, livingEntity);
+			InventoryScreen.renderEntityInInventoryFollowsAngle(guiGraphics, this.leftPos + 1, this.topPos + -1, 50, 0f, 0, livingEntity);
 		}
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
@@ -69,6 +70,9 @@ public class CACguiScreen extends AbstractContainerScreen<CACguiMenu> {
 
 	@Override
 	protected void renderLabels(GuiGraphics guiGraphics, int mouseX, int mouseY) {
+		guiGraphics.drawString(this.font,
+
+				RaceVARProcedure.execute(entity), -43, -98, -1, false);
 	}
 
 	@Override

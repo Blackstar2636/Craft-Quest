@@ -156,6 +156,83 @@
         ]
       },
       "path": "~/CAC"
+    },
+    {
+      "name": "RaceVAR",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "race_var",
+      "metadata": {
+        "return_type": "string",
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/RaceVARProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Variables"
+    },
+    {
+      "name": "HumanSelected",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "human_selected",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/HumanSelectedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "DragonKnightSelected",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dragon_knight_selected",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/DragonKnightSelectedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "DarklingSelected",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "darkling_selected",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/DarklingSelectedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
     }
   ],
   "variable_elements": [
@@ -197,6 +274,36 @@
     },
     {
       "name": "MPTimer",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "Skin",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "EyeType",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "EyeColor",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "HairType",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "HairColor",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"

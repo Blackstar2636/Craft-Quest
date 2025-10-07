@@ -29,8 +29,25 @@
           "scale": 50,
           "rotationX": 0,
           "followMouseMovement": false,
-          "x": 141,
-          "y": 110,
+          "x": 205,
+          "y": 99,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_proc_race_var",
+          "text": {
+            "fixedValue": "",
+            "name": "RaceVAR"
+          },
+          "color": {
+            "value": -1,
+            "falpha": 0.0
+          },
+          "x": 171,
+          "y": 22,
           "locked": false
         }
       }
