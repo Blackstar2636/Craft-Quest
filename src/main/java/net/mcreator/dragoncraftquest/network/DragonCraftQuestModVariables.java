@@ -85,6 +85,7 @@ public class DragonCraftQuestModVariables {
 			clone.strength = original.strength;
 			clone.agility = original.agility;
 			clone.vitality = original.vitality;
+			clone.luck = original.luck;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -135,6 +136,7 @@ public class DragonCraftQuestModVariables {
 		public double strength = 0;
 		public double agility = 0;
 		public double vitality = 0;
+		public double luck = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -152,6 +154,7 @@ public class DragonCraftQuestModVariables {
 			nbt.putDouble("strength", strength);
 			nbt.putDouble("agility", agility);
 			nbt.putDouble("vitality", vitality);
+			nbt.putDouble("luck", luck);
 			return nbt;
 		}
 
@@ -172,6 +175,7 @@ public class DragonCraftQuestModVariables {
 			strength = nbt.getDouble("strength");
 			agility = nbt.getDouble("agility");
 			vitality = nbt.getDouble("vitality");
+			luck = nbt.getDouble("luck");
 		}
 	}
 
@@ -214,6 +218,7 @@ public class DragonCraftQuestModVariables {
 					variables.strength = message.data.strength;
 					variables.agility = message.data.agility;
 					variables.vitality = message.data.vitality;
+					variables.luck = message.data.luck;
 				}
 			});
 			context.setPacketHandled(true);
