@@ -4,10 +4,10 @@ import net.minecraft.world.entity.Entity;
 
 import net.mcreator.dragoncraftquest.network.DragonCraftQuestModVariables;
 
-public class GetStrengthProcedure {
+public class RaceVARProcedure {
 	public static String execute(Entity entity) {
 		if (entity == null)
 			return "";
-		return "Strength: " + new java.text.DecimalFormat("##").format((entity.getCapability(DragonCraftQuestModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new DragonCraftQuestModVariables.PlayerVariables())).strength);
+		return "Race:" + (entity.getCapability(DragonCraftQuestModVariables.PLAYER_VARIABLES_CAPABILITY, null).orElse(new DragonCraftQuestModVariables.PlayerVariables())).Race;
 	}
 }

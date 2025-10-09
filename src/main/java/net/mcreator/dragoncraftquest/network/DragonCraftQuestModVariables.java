@@ -15,6 +15,7 @@ import net.minecraftforge.common.capabilities.CapabilityToken;
 import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.common.capabilities.Capability;
 
+import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.server.level.ServerPlayer;
@@ -76,15 +77,18 @@ public class DragonCraftQuestModVariables {
 			event.getOriginal().revive();
 			PlayerVariables original = ((PlayerVariables) event.getOriginal().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
 			PlayerVariables clone = ((PlayerVariables) event.getEntity().getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
-			clone.ManaCharge = original.ManaCharge;
-			clone.mana = original.mana;
-			clone.wisdom = original.wisdom;
-			clone.health = original.health;
-			clone.max_health = original.max_health;
-			clone.resilience = original.resilience;
-			clone.strength = original.strength;
-			clone.agility = original.agility;
-			clone.vitality = original.vitality;
+			clone.MPCharge = original.MPCharge;
+			clone.MP = original.MP;
+			clone.Race = original.Race;
+			clone.Vocation = original.Vocation;
+			clone.Level = original.Level;
+			clone.MaxMP = original.MaxMP;
+			clone.MPTimer = original.MPTimer;
+			clone.Skin = original.Skin;
+			clone.EyeType = original.EyeType;
+			clone.EyeColor = original.EyeColor;
+			clone.HairType = original.HairType;
+			clone.HairColor = original.HairColor;
 			clone.luck = original.luck;
 			if (!event.isWasDeath()) {
 			}
@@ -127,15 +131,18 @@ public class DragonCraftQuestModVariables {
 	}
 
 	public static class PlayerVariables {
-		public boolean ManaCharge = false;
-		public double mana = 0;
-		public double wisdom = 0;
-		public double health = 0;
-		public double max_health = 0;
-		public double resilience = 0;
-		public double strength = 0;
-		public double agility = 0;
-		public double vitality = 0;
+		public boolean MPCharge = false;
+		public double MP = 0.0;
+		public String Race = "\"\"";
+		public String Vocation = "\"\"";
+		public double Level = 0;
+		public double MaxMP = 100.0;
+		public double MPTimer = 0;
+		public double Skin = 0;
+		public double EyeType = 0;
+		public double EyeColor = 0;
+		public double HairType = 0;
+		public double HairColor = 0;
 		public double luck = 0;
 
 		public void syncPlayerVariables(Entity entity) {
@@ -145,15 +152,18 @@ public class DragonCraftQuestModVariables {
 
 		public Tag writeNBT() {
 			CompoundTag nbt = new CompoundTag();
-			nbt.putBoolean("ManaCharge", ManaCharge);
-			nbt.putDouble("mana", mana);
-			nbt.putDouble("wisdom", wisdom);
-			nbt.putDouble("health", health);
-			nbt.putDouble("max_health", max_health);
-			nbt.putDouble("resilience", resilience);
-			nbt.putDouble("strength", strength);
-			nbt.putDouble("agility", agility);
-			nbt.putDouble("vitality", vitality);
+			nbt.putBoolean("MPCharge", MPCharge);
+			nbt.putDouble("MP", MP);
+			nbt.putString("Race", Race);
+			nbt.putString("Vocation", Vocation);
+			nbt.putDouble("Level", Level);
+			nbt.putDouble("MaxMP", MaxMP);
+			nbt.putDouble("MPTimer", MPTimer);
+			nbt.putDouble("Skin", Skin);
+			nbt.putDouble("EyeType", EyeType);
+			nbt.putDouble("EyeColor", EyeColor);
+			nbt.putDouble("HairType", HairType);
+			nbt.putDouble("HairColor", HairColor);
 			nbt.putDouble("luck", luck);
 			return nbt;
 		}
@@ -166,15 +176,18 @@ public class DragonCraftQuestModVariables {
 			if (nbt == null) {
 				nbt = (CompoundTag) writeNBT();
 			}
-			ManaCharge = nbt.getBoolean("ManaCharge");
-			mana = nbt.getDouble("mana");
-			wisdom = nbt.getDouble("wisdom");
-			health = nbt.getDouble("health");
-			max_health = nbt.getDouble("max_health");
-			resilience = nbt.getDouble("resilience");
-			strength = nbt.getDouble("strength");
-			agility = nbt.getDouble("agility");
-			vitality = nbt.getDouble("vitality");
+			MPCharge = nbt.getBoolean("MPCharge");
+			MP = nbt.getDouble("MP");
+			Race = nbt.getString("Race");
+			Vocation = nbt.getString("Vocation");
+			Level = nbt.getDouble("Level");
+			MaxMP = nbt.getDouble("MaxMP");
+			MPTimer = nbt.getDouble("MPTimer");
+			Skin = nbt.getDouble("Skin");
+			EyeType = nbt.getDouble("EyeType");
+			EyeColor = nbt.getDouble("EyeColor");
+			HairType = nbt.getDouble("HairType");
+			HairColor = nbt.getDouble("HairColor");
 			luck = nbt.getDouble("luck");
 		}
 	}
@@ -209,15 +222,18 @@ public class DragonCraftQuestModVariables {
 			context.enqueueWork(() -> {
 				if (!context.getDirection().getReceptionSide().isServer()) {
 					PlayerVariables variables = ((PlayerVariables) Minecraft.getInstance().player.level().getEntity(message.target).getCapability(PLAYER_VARIABLES_CAPABILITY, null).orElse(new PlayerVariables()));
-					variables.ManaCharge = message.data.ManaCharge;
-					variables.mana = message.data.mana;
-					variables.wisdom = message.data.wisdom;
-					variables.health = message.data.health;
-					variables.max_health = message.data.max_health;
-					variables.resilience = message.data.resilience;
-					variables.strength = message.data.strength;
-					variables.agility = message.data.agility;
-					variables.vitality = message.data.vitality;
+					variables.MPCharge = message.data.MPCharge;
+					variables.MP = message.data.MP;
+					variables.Race = message.data.Race;
+					variables.Vocation = message.data.Vocation;
+					variables.Level = message.data.Level;
+					variables.MaxMP = message.data.MaxMP;
+					variables.MPTimer = message.data.MPTimer;
+					variables.Skin = message.data.Skin;
+					variables.EyeType = message.data.EyeType;
+					variables.EyeColor = message.data.EyeColor;
+					variables.HairType = message.data.HairType;
+					variables.HairColor = message.data.HairColor;
 					variables.luck = message.data.luck;
 				}
 			});

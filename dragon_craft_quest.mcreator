@@ -1,15 +1,29 @@
 {
   "mod_elements": [
     {
-      "name": "GetMaxMana",
+      "name": "Statsgui",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "statsgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/client/gui/StatsguiScreen.java",
+          "src/main/java/net/mcreator/dragoncraftquest/world/inventory/StatsguiMenu.java"
+        ]
+      },
+      "path": "~/GUI"
+    },
+    {
+      "name": "PlayerDisplay",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "get_max_mana",
+      "registry_name": "player_display",
       "metadata": {
-        "return_type": "number",
+        "return_type": "entity",
         "files": [
-          "src/main/java/net/mcreator/dragoncraftquest/procedures/GetMaxManaProcedure.java"
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/PlayerDisplayProcedure.java"
         ],
         "dependencies": [
           {
@@ -17,18 +31,18 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/Procedures"
     },
     {
-      "name": "GetMaxHealth",
+      "name": "MpOver",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "get_max_health",
+      "registry_name": "mp_over",
       "metadata": {
-        "return_type": "number",
         "files": [
-          "src/main/java/net/mcreator/dragoncraftquest/procedures/GetMaxHealthProcedure.java"
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/MpOverProcedure.java"
         ],
         "dependencies": [
           {
@@ -36,18 +50,89 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/Procedures"
     },
     {
-      "name": "GetMana",
+      "name": "MpCharge",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "get_mana",
+      "registry_name": "mp_charge",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/MpChargeProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "MpChargeKeyOnKeyPressed",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mp_charge_key_on_key_pressed",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/MpChargeKeyOnKeyPressedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "MpChargeKeyOnKeyReleased",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mp_charge_key_on_key_released",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/MpChargeKeyOnKeyReleasedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "MpChargeKey",
+      "type": "keybind",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mp_charge_key",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/network/MpChargeKeyMessage.java"
+        ]
+      },
+      "path": "~/Keybinds"
+    },
+    {
+      "name": "MpVAR",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "mp_var",
       "metadata": {
         "return_type": "string",
         "files": [
-          "src/main/java/net/mcreator/dragoncraftquest/procedures/GetManaProcedure.java"
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/MpVARProcedure.java"
         ],
         "dependencies": [
           {
@@ -55,18 +140,33 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/Variables"
     },
     {
-      "name": "GetHealth",
+      "name": "CACgui",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "ca_cgui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/world/inventory/CACguiMenu.java",
+          "src/main/java/net/mcreator/dragoncraftquest/client/gui/CACguiScreen.java"
+        ]
+      },
+      "path": "~/CAC"
+    },
+    {
+      "name": "RaceVAR",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "get_health",
+      "registry_name": "race_var",
       "metadata": {
         "return_type": "string",
         "files": [
-          "src/main/java/net/mcreator/dragoncraftquest/procedures/GetHealthProcedure.java"
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/RaceVARProcedure.java"
         ],
         "dependencies": [
           {
@@ -74,18 +174,18 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/Variables"
     },
     {
-      "name": "GetStrength",
+      "name": "HumanSelected",
       "type": "procedure",
       "compiles": true,
       "locked_code": false,
-      "registry_name": "get_strength",
+      "registry_name": "human_selected",
       "metadata": {
-        "return_type": "string",
         "files": [
-          "src/main/java/net/mcreator/dragoncraftquest/procedures/GetStrengthProcedure.java"
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/HumanSelectedProcedure.java"
         ],
         "dependencies": [
           {
@@ -93,60 +193,117 @@
             "type": "entity"
           }
         ]
-      }
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "DragonKnightSelected",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dragon_knight_selected",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/DragonKnightSelectedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "DarklingSelected",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "darkling_selected",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/DarklingSelectedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
     }
   ],
   "variable_elements": [
     {
-      "name": "ManaCharge",
+      "name": "MPCharge",
       "type": "logic",
       "scope": "player_persistent",
       "value": "false"
     },
     {
-      "name": "mana",
+      "name": "MP",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0.0"
+    },
+    {
+      "name": "Race",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "Vocation",
+      "type": "string",
+      "scope": "player_persistent",
+      "value": "\"\""
+    },
+    {
+      "name": "Level",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
     },
     {
-      "name": "wisdom",
+      "name": "MaxMP",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "100.0"
+    },
+    {
+      "name": "MPTimer",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
     },
     {
-      "name": "health",
+      "name": "Skin",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
     },
     {
-      "name": "max_health",
+      "name": "EyeType",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
     },
     {
-      "name": "resilience",
+      "name": "EyeColor",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
     },
     {
-      "name": "strength",
+      "name": "HairType",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
     },
     {
-      "name": "agility",
-      "type": "number",
-      "scope": "player_persistent",
-      "value": "0"
-    },
-    {
-      "name": "vitality",
+      "name": "HairColor",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"
@@ -162,7 +319,9 @@
   "tag_elements": {},
   "tab_element_order": {},
   "language_map": {
-    "en_us": {}
+    "en_us": {
+      "key.dragon_craft_quest.mp_charge_key": "MpCharge "
+    }
   },
   "foldersRoot": {
     "name": "~",
@@ -238,6 +397,10 @@
       {
         "name": "Structures",
         "children": []
+      },
+      {
+        "name": "Variables",
+        "children": []
       }
     ]
   },
@@ -252,8 +415,13 @@
     "requiredMods": [],
     "dependencies": [],
     "dependants": [],
-    "mcreatorDependencies": [],
+    "mcreatorDependencies": [
+      "kleidersplayerrenderer",
+      "geckolib",
+      "playeranimator"
+    ],
     "currentGenerator": "forge-1.20.1",
+    "credits": "Created using mod maker MCreator - https://mcreator.net/about",
     "modElementsPackage": "net.mcreator.dragoncraftquest"
   },
   "mcreatorVersion": 202400452410
