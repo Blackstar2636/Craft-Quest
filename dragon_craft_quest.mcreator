@@ -8,8 +8,8 @@
       "registry_name": "statsgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/dragoncraftquest/client/gui/StatsguiScreen.java",
-          "src/main/java/net/mcreator/dragoncraftquest/world/inventory/StatsguiMenu.java"
+          "src/main/java/net/mcreator/dragoncraftquest/world/inventory/StatsguiMenu.java",
+          "src/main/java/net/mcreator/dragoncraftquest/client/gui/StatsguiScreen.java"
         ]
       },
       "path": "~/GUI"
@@ -151,8 +151,9 @@
       "registry_name": "ca_cgui",
       "metadata": {
         "files": [
-          "src/main/java/net/mcreator/dragoncraftquest/world/inventory/CACguiMenu.java",
-          "src/main/java/net/mcreator/dragoncraftquest/client/gui/CACguiScreen.java"
+          "src/main/java/net/mcreator/dragoncraftquest/client/gui/CACguiScreen.java",
+          "src/main/java/net/mcreator/dragoncraftquest/network/CACguiButtonMessage.java",
+          "src/main/java/net/mcreator/dragoncraftquest/world/inventory/CACguiMenu.java"
         ]
       },
       "path": "~/CAC"
@@ -224,6 +225,98 @@
       "metadata": {
         "files": [
           "src/main/java/net/mcreator/dragoncraftquest/procedures/DarklingSelectedProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "PlayerJoinsWorld",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_joins_world",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/PlayerJoinsWorldProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "PreviousRace",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "previous_race",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/PreviousRaceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "NextRace",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "next_race",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/NextRaceProcedure.java"
+        ],
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ]
+      },
+      "path": "~/Procedures"
+    },
+    {
+      "name": "OnPlayerTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "on_player_tick",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/dragoncraftquest/procedures/OnPlayerTickProcedure.java"
         ],
         "dependencies": [
           {
@@ -310,6 +403,12 @@
     },
     {
       "name": "luck",
+      "type": "number",
+      "scope": "player_persistent",
+      "value": "0"
+    },
+    {
+      "name": "race",
       "type": "number",
       "scope": "player_persistent",
       "value": "0"

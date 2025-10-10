@@ -90,6 +90,7 @@ public class DragonCraftQuestModVariables {
 			clone.HairType = original.HairType;
 			clone.HairColor = original.HairColor;
 			clone.luck = original.luck;
+			clone.race = original.race;
 			if (!event.isWasDeath()) {
 			}
 			if (!event.getEntity().level().isClientSide()) {
@@ -144,6 +145,7 @@ public class DragonCraftQuestModVariables {
 		public double HairType = 0;
 		public double HairColor = 0;
 		public double luck = 0;
+		public double race = 0;
 
 		public void syncPlayerVariables(Entity entity) {
 			if (entity instanceof ServerPlayer serverPlayer)
@@ -165,6 +167,7 @@ public class DragonCraftQuestModVariables {
 			nbt.putDouble("HairType", HairType);
 			nbt.putDouble("HairColor", HairColor);
 			nbt.putDouble("luck", luck);
+			nbt.putDouble("race", race);
 			return nbt;
 		}
 
@@ -189,6 +192,7 @@ public class DragonCraftQuestModVariables {
 			HairType = nbt.getDouble("HairType");
 			HairColor = nbt.getDouble("HairColor");
 			luck = nbt.getDouble("luck");
+			race = nbt.getDouble("race");
 		}
 	}
 
@@ -235,6 +239,7 @@ public class DragonCraftQuestModVariables {
 					variables.HairType = message.data.HairType;
 					variables.HairColor = message.data.HairColor;
 					variables.luck = message.data.luck;
+					variables.race = message.data.race;
 				}
 			});
 			context.setPacketHandled(true);

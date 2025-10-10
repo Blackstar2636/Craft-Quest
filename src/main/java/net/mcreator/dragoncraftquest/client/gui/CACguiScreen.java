@@ -8,12 +8,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.client.gui.screens.inventory.InventoryScreen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.client.gui.components.ImageButton;
 import net.minecraft.client.gui.GuiGraphics;
 
 import net.mcreator.dragoncraftquest.world.inventory.CACguiMenu;
 import net.mcreator.dragoncraftquest.procedures.RaceVARProcedure;
 import net.mcreator.dragoncraftquest.procedures.PlayerDisplayProcedure;
+import net.mcreator.dragoncraftquest.network.CACguiButtonMessage;
 import net.mcreator.dragoncraftquest.init.DragonCraftQuestModScreens.WidgetScreen;
+import net.mcreator.dragoncraftquest.DragonCraftQuestMod;
 
 import java.util.HashMap;
 
@@ -25,6 +28,12 @@ public class CACguiScreen extends AbstractContainerScreen<CACguiMenu> implements
 	private final int x, y, z;
 	private final Player entity;
 	private final static HashMap<String, String> textstate = new HashMap<>();
+	ImageButton imagebutton_prev_button;
+	ImageButton imagebutton_next_button;
+	ImageButton imagebutton_next_button1;
+	ImageButton imagebutton_prev_button1;
+	ImageButton imagebutton_next_button2;
+	ImageButton imagebutton_prev_button2;
 
 	public CACguiScreen(CACguiMenu container, Inventory inventory, Component text) {
 		super(container, inventory, text);
@@ -44,7 +53,7 @@ public class CACguiScreen extends AbstractContainerScreen<CACguiMenu> implements
 		this.renderBackground(guiGraphics);
 		super.render(guiGraphics, mouseX, mouseY, partialTicks);
 		if (PlayerDisplayProcedure.execute(entity) instanceof LivingEntity livingEntity) {
-			InventoryScreen.renderEntityInInventoryFollowsAngle(guiGraphics, this.leftPos + 1, this.topPos + -1, 50, 0f, 0, livingEntity);
+			InventoryScreen.renderEntityInInventoryFollowsAngle(guiGraphics, this.leftPos + 127, this.topPos + 36, 50, 0f, 0, livingEntity);
 		}
 		this.renderTooltip(guiGraphics, mouseX, mouseY);
 	}
@@ -84,5 +93,37 @@ public class CACguiScreen extends AbstractContainerScreen<CACguiMenu> implements
 	@Override
 	public void init() {
 		super.init();
+		imagebutton_prev_button = new ImageButton(this.leftPos + -53, this.topPos + -100, 16, 16, 0, 0, 16, new ResourceLocation("dragon_craft_quest:textures/screens/atlas/imagebutton_prev_button.png"), 16, 32, e -> {
+			if (true) {
+				DragonCraftQuestMod.PACKET_HANDLER.sendToServer(new CACguiButtonMessage(0, x, y, z, textstate));
+				CACguiButtonMessage.handleButtonAction(entity, 0, x, y, z, textstate);
+			}
+		});
+		guistate.put("button:imagebutton_prev_button", imagebutton_prev_button);
+		this.addRenderableWidget(imagebutton_prev_button);
+		imagebutton_next_button = new ImageButton(this.leftPos + 47, this.topPos + -101, 16, 16, 0, 0, 16, new ResourceLocation("dragon_craft_quest:textures/screens/atlas/imagebutton_next_button.png"), 16, 32, e -> {
+			if (true) {
+				DragonCraftQuestMod.PACKET_HANDLER.sendToServer(new CACguiButtonMessage(1, x, y, z, textstate));
+				CACguiButtonMessage.handleButtonAction(entity, 1, x, y, z, textstate);
+			}
+		});
+		guistate.put("button:imagebutton_next_button", imagebutton_next_button);
+		this.addRenderableWidget(imagebutton_next_button);
+		imagebutton_next_button1 = new ImageButton(this.leftPos + -60, this.topPos + -21, 16, 16, 0, 0, 16, new ResourceLocation("dragon_craft_quest:textures/screens/atlas/imagebutton_next_button1.png"), 16, 32, e -> {
+		});
+		guistate.put("button:imagebutton_next_button1", imagebutton_next_button1);
+		this.addRenderableWidget(imagebutton_next_button1);
+		imagebutton_prev_button1 = new ImageButton(this.leftPos + -95, this.topPos + -22, 16, 16, 0, 0, 16, new ResourceLocation("dragon_craft_quest:textures/screens/atlas/imagebutton_prev_button1.png"), 16, 32, e -> {
+		});
+		guistate.put("button:imagebutton_prev_button1", imagebutton_prev_button1);
+		this.addRenderableWidget(imagebutton_prev_button1);
+		imagebutton_next_button2 = new ImageButton(this.leftPos + 82, this.topPos + -22, 16, 16, 0, 0, 16, new ResourceLocation("dragon_craft_quest:textures/screens/atlas/imagebutton_next_button2.png"), 16, 32, e -> {
+		});
+		guistate.put("button:imagebutton_next_button2", imagebutton_next_button2);
+		this.addRenderableWidget(imagebutton_next_button2);
+		imagebutton_prev_button2 = new ImageButton(this.leftPos + 46, this.topPos + -23, 16, 16, 0, 0, 16, new ResourceLocation("dragon_craft_quest:textures/screens/atlas/imagebutton_prev_button2.png"), 16, 32, e -> {
+		});
+		guistate.put("button:imagebutton_prev_button2", imagebutton_prev_button2);
+		this.addRenderableWidget(imagebutton_prev_button2);
 	}
 }

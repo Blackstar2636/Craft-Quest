@@ -29,8 +29,8 @@
           "scale": 50,
           "rotationX": 0,
           "followMouseMovement": false,
-          "x": 205,
-          "y": 99,
+          "x": 331,
+          "y": 136,
           "locked": false
         }
       },
@@ -48,6 +48,78 @@
           },
           "x": 171,
           "y": 22,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_prev_button",
+          "image": "prev_button.png",
+          "hoveredImage": "highlightedprev_button.png",
+          "onClick": {
+            "name": "PreviousRace"
+          },
+          "x": 161,
+          "y": 20,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_button",
+          "image": "next_button.png",
+          "hoveredImage": "highlighted_button.png",
+          "onClick": {
+            "name": "NextRace"
+          },
+          "x": 261,
+          "y": 19,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_button1",
+          "image": "next_button.png",
+          "hoveredImage": "highlighted_button.png",
+          "x": 154,
+          "y": 99,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_prev_button1",
+          "image": "prev_button.png",
+          "hoveredImage": "highlightedprev_button.png",
+          "x": 119,
+          "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_next_button2",
+          "image": "next_button.png",
+          "hoveredImage": "highlighted_button.png",
+          "x": 296,
+          "y": 98,
+          "locked": false
+        }
+      },
+      {
+        "type": "imagebutton",
+        "data": {
+          "name": "imagebutton_prev_button2",
+          "image": "prev_button.png",
+          "hoveredImage": "highlightedprev_button.png",
+          "x": 260,
+          "y": 97,
           "locked": false
         }
       }
